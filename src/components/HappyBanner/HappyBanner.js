@@ -1,11 +1,11 @@
 import React from 'react';
 
-function HappyBanner({ guesses }) {
+function HappyBanner({ numGuesses }) {
   return (
     <div className="happy banner">
       <p>
         <strong>Congratulations!</strong> Got it in{' '}
-        <strong>{guesses.length} guesses</strong>.
+        <strong>{numGuesses} guesses</strong>.
       </p>
     </div>
   );

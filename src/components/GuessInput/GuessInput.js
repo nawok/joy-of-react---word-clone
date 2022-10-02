@@ -3,24 +3,27 @@ import React from 'react';
 function GuessInput({ onSubmit, gameState }) {
   const [guess, setGuess] = React.useState('');
   return (
-    <form className="guess-input-wrapper" onSubmit={handleOnSubmit}>
+    <form className="guess-input-wrapper" onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
       <input
+        required
+        minLength={5}
+        maxLength={5}
         id="guess-input"
         type="text"
         value={guess}
-        onChange={handleOnChange}
-        disabled={gameState !== 'playing'}
+        onChange={handleChange}
+        disabled={gameState !== 'running'}
       />
     </form>
   );
 
-  function handleOnChange(event) {
+  function handleChange(event) {
     const guessInputValue = event.target.value;
     setGuess(guessInputValue.toUpperCase());
   }
 
-  function handleOnSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
     if (guess.length !== 5) {
       return;

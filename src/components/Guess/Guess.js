@@ -11,7 +11,7 @@ function Guess({ answer, children: guess }) {
   const result = checkGuess(guess, answer);
   return (
     <p className="guess">
-      {range(0, 5).map((index) => (
+      {range(5).map((index) => (
         <Cell
           key={index}
           letter={result && result[index].letter}
